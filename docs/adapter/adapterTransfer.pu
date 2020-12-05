@@ -1,0 +1,18 @@
+@startuml
+title: 委譲(Transfer)を利用するパターン
+interface GhibliRepository {
+    public findOneById(String id);
+}
+
+class GhibliAdapterTransfer {
+    public findOneById(String id);
+}
+
+class GhibliApiClient {
+    getAllGhibliIdAndTitle();
+}
+
+GhibliAdapterTransfer ..> GhibliRepository: implements
+GhibliAdapterTransfer o-- GhibliApiClient: has(委譲)
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+title: 継承(exntends)を利用するパターン
+interface GhibliRepository {
+    public findOneById(String id);
+}
+
+class GhibliAdapterTransfer {
+    public findOneById(String id);
+}
+
+class GhibliApiClient {
+    getAllGhibliIdAndTitle();
+}
+
+GhibliAdapterTransfer ..> GhibliRepository: implements
+GhibliAdapterTransfer -> GhibliApiClient: extends(継承)
+
+@enduml
