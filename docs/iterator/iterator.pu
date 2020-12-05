@@ -1,0 +1,37 @@
+@startuml
+interface Iterator {
+    public abstract boolean hasNext();
+    public abstract Object next();
+}
+
+class PaymentMethod {
+    private String number;
+    public getNumber();
+}
+
+interface Aggregate {
+    public abstract Iterator iterator;
+}
+
+class PaymentMethodAggregate {
+    public getPaymentMethodAt(int index);
+    public addPaymentMethod(PaymentMethod paymentMethod);
+    public getSize();
+    public PaymentMethodAggregateIterator iterator();
+}
+
+class PaymentMethodAggregateIterator {
+    private PaymentMethodAggregate paymentMethodAggregate;
+    private int index;
+
+    public boolean hasNext();
+    public PaymentMethodAggregate next();
+}
+
+Aggregate -> Iterator: Iterator作成
+PaymentMethodAggregate o-- PaymentMethod
+PaymentMethodAggregate o-- PaymentMethodAggregateIterator
+PaymentMethodAggregate ..> Aggregate
+PaymentMethodAggregateIterator ..> Iterator
+
+@enduml
