@@ -1,0 +1,9 @@
+@startuml
+title: Singleton
+
+class PaymentRepository {
+    private static PaymentRepository paymentRepository = new PaymentRepository();
+    private PaymentRepository();
+    public getInistance();
+}
+@enduml
