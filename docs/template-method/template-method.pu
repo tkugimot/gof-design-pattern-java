@@ -1,0 +1,28 @@
+@startuml
+title: templatemethod
+
+abstract class AbstractDisplay {
+    public abstract void open();
+    public abstract void print();
+    public abstract void close();
+    public final void display();
+}
+
+class BankAccountDisplay {
+    private BankAccount bankAccount;
+    public void open();
+    public void print();
+    public void close();
+}
+
+class CreditCardDisplay {
+    private CreditCard creditCard;
+    public void open();
+    public void print();
+    public void close();
+}
+
+BankAccountDisplay -> AbstractDisplay: 継承
+CreditCardDisplay -> AbstractDisplay: 継承
+
+@enduml

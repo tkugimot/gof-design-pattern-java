@@ -1,0 +1,29 @@
+@startuml
+title: templatemethod
+
+abstract class PaymentFactory {
+    private int num;
+    public final Payment create(String type);
+    protected abstract Payment createPayment(String type);
+    private void increment();
+}
+
+abstract class Payment {
+    public abstract void pay();
+}
+
+class CreditCard extends Payment {
+    public void pay();
+    private void payByCcNum();
+}
+
+class CreditCardFactory {
+    public CreditCard createPayment(String type);
+}
+
+CreditCardFactory -> PaymentFactory: extends(継承)
+CreditCard -> Payment: extends(継承)
+CreditCardFactory -> CreditCard: 生成
+PaymentFactory -> Payment: 生成
+
+@enduml
